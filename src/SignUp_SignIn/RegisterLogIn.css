@@ -1,0 +1,55 @@
+.registerOrLogin{
+   background: #ffffff;
+   background: linear-gradient(132deg,#ffffff 0%, #00e9ff 40%, #ae00ff 80%);
+   background: -webkit-linear-gradient(132deg,#ffffff 0%, #00e9ff 40%, #ae00ff 80%);
+   background: -moz-linear-gradient(132deg,#ffffff 0%, #00e9ff 40%, #ae00ff 80%);;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  
+}
+.login input{
+   color: #ffffff;
+   &:focus{
+      color: #ffffff;
+   }   
+}
+.login{
+   width: 400px;
+   background-color: rgba(0, 0, 0, 0.2);
+   padding: 2rem 2rem 1rem 2rem;
+   border: solid 1px gray ;
+   border-radius: 10px;
+}
+.login input::placeholder{
+   color: white;
+   background:none;
+}
+.faIcons{
+  width: 30px;
+}
+.formInput{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 10px;
+}
+
+.facolors{
+   color: white;
+}
+.inputDiv{
+   width: 350px;
+}
+#passwordValidspan{
+   display: none;
+   color: white;
+   padding-left: 31px;
+}
+
+
+
+
+
