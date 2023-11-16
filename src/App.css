@@ -5,3 +5,14 @@
    align-items: center;
    background-color: black;
 }
+.navbar-bg {
+   background: linear-gradient(6deg, black, transparent);
+}
+.navbar{
+   padding: 0 !important;
+}
+a.nav-link {
+   color: white;
+   font-size: larger;
+   font-weight: 500;
+}

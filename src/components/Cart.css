@@ -1,0 +1,33 @@
+.cart-icon{
+   color: white;
+}
+.cart-table img{
+ 
+      width: 100%;
+      border: solid 3px orange;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      /* border-radius: 10px; */
+   
+}
+.cart-table button{
+   margin: 0 5px;
+}
+.cart-table p{
+   text-align: center;
+}
+.cart-table {
+    margin: auto;
+}
+
+.tableData{
+   text-align: center;
+   padding: 10px;
+
+}
+.emptyCart{
+   min-height: 89vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

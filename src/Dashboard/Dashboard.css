@@ -1,0 +1,60 @@
+.item img {
+   width: 100%;
+   border: solid 3px orange;
+   margin-bottom: 10px;
+   border-top-right-radius: 10px;
+   border-top-left-radius: 10px;
+   /* border-radius: 10px; */
+}
+.item {
+   width: 206px !important;
+   padding: 16px;
+   border: solid 3px white;
+   color: white;
+   background: dimgrey;
+   border-radius: 20px;
+}
+.item p {
+   margin: 0;
+}
+.itemPtrice {
+   font-size: larger;
+   font-weight: 700;
+   color: orange;
+}
+.headerMargin {
+   padding: 0;
+}
+.filterDiv{
+   width: 300px;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    object-position: center;
+    height: 400px;
+}
+.carousel-item p{
+   font-size: 20px;
+}
+.ItemButton{
+&:hover{
+  background-color: rgb(246 ,206 ,87);
+  font-weight: 600;
+   color: purple;
+}
+&:active{
+   background:chartreuse !important;
+}
+}
+.btnCartIcon{
+   display: flex;
+}
+.addToCarttick{
+   display: inline;
+}
+.addToCarttickToggle{
+   display: block;
+}
+
