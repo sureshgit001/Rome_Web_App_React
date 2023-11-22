@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -7,11 +7,19 @@ import './Cart.css';
 
 
 
-const Cart = ({ cartItems, onRemoveFromCart, onIncreaseQuantity, onDecreaseQuantity }) => {
+const Cart = ({ cartItems, onRemoveFromCart, onIncreaseQuantity, onDecreaseQuantity,handleCartSizeChange }) => {
   // Calculate total items and total price
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+  
+    
   const totalPrice = cartItems.reduce((total, item) => total + item.itemPrice * item.quantity, 0);
   const navigate = useNavigate();
+ 
+  const cartQuantity=new Set(cartItems.map(item => item.itemId));
+    const cartSize =cartQuantity.size;
+  useEffect(() => {
+    handleCartSizeChange(cartSize);
+  }, [cartSize, handleCartSizeChange]);
   return (
     <>
      <section className="bg-transparent p-0  navbar-bg">
@@ -48,6 +56,7 @@ const Cart = ({ cartItems, onRemoveFromCart, onIncreaseQuantity, onDecreaseQuant
     k border-warning text-warning' onClick={()=>navigate('/success')}>Add Items</button>
       </div>
     </div>
+
     </>
     :
     <>
@@ -83,6 +92,7 @@ const Cart = ({ cartItems, onRemoveFromCart, onIncreaseQuantity, onDecreaseQuant
               ))}               
             </table>
             <p className='text-center' >Total Price : ₹{totalPrice.toFixed(2)}</p>
+            {/* <p className='text-center' >Total items : {cartSize}</p> */}
             <div className='text-center'>
             </div>
            

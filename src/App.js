@@ -89,7 +89,10 @@ function App() {
     // Perform order placement logic, e.g., sending data to a server
     setIsOrderPlaced(true);
   };
-
+  const [cartSize, setCartSize] = useState(0);
+  const handleCartSizeChange = (size) => {
+    setCartSize(size);
+  };
 
 
   return (
@@ -99,12 +102,15 @@ function App() {
       {loading ? <Routes>
         <Route path='/' element={<RegisterLogIn />} />
         <Route path='/success' element={
-          <Dashboard onAddToCart={handleAddToCart} /> } />
+          <Dashboard onAddToCart={handleAddToCart} cartSize={cartSize} /> } />
         <Route path='/cart' element={<Cart
           cartItems={cartItems}
           onRemoveFromCart={handleRemoveFromCart}
           onIncreaseQuantity={handleIncreaseQuantity}
           onDecreaseQuantity={handleDecreaseQuantity}
+          handleCartSizeChange={
+            handleCartSizeChange
+          }
         />} />
         <Route path='/place-order' element={<>
           <Order cartItems={cartItems} onPlaceOrder={handlePlaceOrder} />

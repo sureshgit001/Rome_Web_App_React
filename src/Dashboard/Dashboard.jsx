@@ -10,13 +10,11 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
-export default function Dashboa({ onAddToCart }) {
+export default function Dashboard({ onAddToCart, cartSize }) {
 
    const [items, setItems] = useState([]);
    const [category, setIcategory] = useState([]);
    const [subCategories, setsubCategories] = useState([]);
-   let cartSuccess=<FontAwesomeIcon icon={faCircleCheck} color="green" />;
-   let icon;
    const navigate = useNavigate();
    useEffect(() => {
       new WOW.WOW({
@@ -51,7 +49,7 @@ export default function Dashboa({ onAddToCart }) {
 
                <Navbar className="bg-transparent headerMargin">
                   <Container fluid className="bannerHeight">
-                     <Navbar.Brand> <img src="/images/Rome-logo.png" alt="" /></Navbar.Brand>
+                     <Navbar.Brand> <img src="/images/Rome-logo.png" alt="Rome-logo.png" /></Navbar.Brand>
                      <Navbar.Toggle aria-controls="navbarScroll" />
                      <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -64,6 +62,7 @@ export default function Dashboa({ onAddToCart }) {
                               {/* <Nav.Link href="#features">Features</Nav.Link>
                               <Nav.Link href="#pricing">Pricing</Nav.Link> */}
                               <Nav.Link onClick={() => navigate('/cart')} ><FontAwesomeIcon className="cart-icon" icon={faCartPlus} /></Nav.Link>
+                              <h1>cartQuantity:{cartSize}</h1>
                            </Nav>
                         </Nav>
 
@@ -72,7 +71,11 @@ export default function Dashboa({ onAddToCart }) {
                </Navbar>
             </div>
          </section>
-
+         {/* <audio controls>
+           
+               <source src="/audios/Solo_Brathuke_So_Better_-_Hey_Idi_Nenena_Video__Sai_Tej__Nabha_Natesh__Subbu__Thaman_S(256k).mp3" type="audio/mp3"/>
+                  Your browser does not support the audio element.
+          </audio> */}
          <section className="bg-dark pt-5 pb-5">
             <div className="cursorelDiv">
                <CarouselCom />
@@ -85,7 +88,7 @@ export default function Dashboa({ onAddToCart }) {
                      Filter
                   </h3>
                   <div className="categoey pb-4">
-                     <select  class="form-select " aria-label="Default select example">
+                     <select class="form-select " aria-label="Default select example">
                         <option >Category</option>
 
                         {
@@ -129,12 +132,12 @@ export default function Dashboa({ onAddToCart }) {
                            <p>
                               <span className="itemPtrice">Price : </span>₹{item.itemPrice}
                            </p>
-                         <div className="btnCartIcon ">
-                         <button className='btn btn-warning ItemButton me-2' onClick={() => {
-                           onAddToCart(item);
-                          } } >Add to Cart</button>
-                           {/* <span name={item.itemId}  className={item.itemId}>{<FontAwesomeIcon key={item.itemId} id="iconCheck" icon={faCircleCheck}/>}</span> */}
-                         </div>
+                           <div className="btnCartIcon ">
+                              <button className='btn btn-warning ItemButton me-2' onClick={() => {
+                                 onAddToCart(item);
+                              }} >Add to Cart</button>
+                              {/* <span name={item.itemId}  className={item.itemId}>{<FontAwesomeIcon key={item.itemId} id="iconCheck" icon={faCircleCheck}/>}</span> */}
+                           </div>
                         </div>
                      </>)
                   })}
