@@ -105,10 +105,10 @@ export default function RegisterLogIn() {
       const username = 'ramesh';
       const password = 'Ramesh#123';
       const basicAuthHeader = 'Basic ' + btoa(username + ':' + password);
-      const user = {
-         userEmail: "ramesh",
-         userPassword: "ramesh"
-      }
+      // const user = {
+      //    userEmail: "ramesh",
+      //    userPassword: "ramesh"
+      // }
 
       axios.post(apiUrl, data, {
          headers: {

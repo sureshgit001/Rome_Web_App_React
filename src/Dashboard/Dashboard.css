@@ -58,3 +58,26 @@
    display: block;
 }
 
+.cart-icon {
+   position: relative;
+   display: inline-block;
+   font-size: 24px;
+ }
+
+.cartSizeNumberCricle{
+    display: inline-block;
+}
+.cartSizeNumber{
+   position: absolute;
+   top: -5px;
+   right: -7px;
+   background-color: #e81f1f;
+   color: #fff;
+   font-size: 13px;
+   border-radius: 50%;
+   height: 20px;
+   width: 18px;
+   padding-left: 6px;
+}
+
+

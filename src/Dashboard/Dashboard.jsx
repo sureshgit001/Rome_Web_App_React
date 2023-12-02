@@ -8,10 +8,19 @@ import WOW from 'wowjs';
 import CarouselCom from "./Carousel";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { addToCart } from '../redux/actions/cartActions';
 
-export default function Dashboard({ onAddToCart, cartSize }) {
 
+export default function Dashboard() {
+
+   const dispatch = useDispatch();
+   const cartItems = useSelector(state => state.cartItems);
+   const handleAddToCart = (item) => {
+      dispatch(addToCart(item));
+   };
    const [items, setItems] = useState([]);
    const [category, setIcategory] = useState([]);
    const [subCategories, setsubCategories] = useState([]);
@@ -59,11 +68,14 @@ export default function Dashboard({ onAddToCart, cartSize }) {
                         >
                            <Nav className="me-auto">
                               <Nav.Link onClick={() => navigate('/success')}>Home</Nav.Link>
-                              {/* <Nav.Link href="#features">Features</Nav.Link>
-                              <Nav.Link href="#pricing">Pricing</Nav.Link> */}
-                              <Nav.Link onClick={() => navigate('/cart')} ><FontAwesomeIcon className="cart-icon" icon={faCartPlus} /></Nav.Link>
-                              <h1>cartQuantity:{cartSize}</h1>
+                              <Nav.Link onClick={() => navigate('/cart')} >
+                              <div class="cart-icon">
+                              <span class="cartSizeNumberCricle"><FontAwesomeIcon className="cart-icon" icon={faCartPlus} /></span>
+                              <span class="cartSizeNumber">{cartItems.length}</span> 
+                           </div>
+                              </Nav.Link>                            
                            </Nav>
+                          
                         </Nav>
 
                      </Navbar.Collapse>
@@ -71,11 +83,6 @@ export default function Dashboard({ onAddToCart, cartSize }) {
                </Navbar>
             </div>
          </section>
-         {/* <audio controls>
-           
-               <source src="/audios/Solo_Brathuke_So_Better_-_Hey_Idi_Nenena_Video__Sai_Tej__Nabha_Natesh__Subbu__Thaman_S(256k).mp3" type="audio/mp3"/>
-                  Your browser does not support the audio element.
-          </audio> */}
          <section className="bg-dark pt-5 pb-5">
             <div className="cursorelDiv">
                <CarouselCom />
@@ -133,9 +140,9 @@ export default function Dashboard({ onAddToCart, cartSize }) {
                               <span className="itemPtrice">Price : </span>₹{item.itemPrice}
                            </p>
                            <div className="btnCartIcon ">
-                              <button className='btn btn-warning ItemButton me-2' onClick={() => {
-                                 onAddToCart(item);
-                              }} >Add to Cart</button>
+                              <button className='btn btn-warning ItemButton me-2' onClick={() => handleAddToCart(item)}>Add to Cart</button>
+
+
                               {/* <span name={item.itemId}  className={item.itemId}>{<FontAwesomeIcon key={item.itemId} id="iconCheck" icon={faCircleCheck}/>}</span> */}
                            </div>
                         </div>
