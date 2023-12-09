@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { addToCart } from '../redux/actions/cartActions';
+import { addToCart } from '../Redux/actions/cartActions';
 
 
 export default function Dashboard() {

@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from "react-router-dom";
 import './Cart.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart, increaseQuantity, decreaseQuantity } from '../redux/actions/cartActions';
+import { removeFromCart, increaseQuantity, decreaseQuantity } from '../Redux/actions/cartActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
