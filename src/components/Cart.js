@@ -106,10 +106,13 @@ const Cart = () => {
                 <div className="col-md-8">
                   <div className="card mb-4">
                     <div className="card-header py-3">
-                      <div class="pb-3">
-                        <h3 onClick={() => navigate('/success')} class="mb-0"><a href="#!" class="text-body"><i
-                          class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h3>
-                      </div>
+                    <div className="pb-3">
+  <h3 onClick={() => navigate('/success')} className="mb-0" style={{ cursor: "pointer" }}>
+    <span className="text-body">
+      <i className="fas fa-long-arrow-alt-left me-2"></i>Back to shop
+    </span>
+  </h3>
+</div>
                       <h5 className="mb-0">Cart - {cartItems.length} items</h5>
                     </div>
                     <div className="card-body">

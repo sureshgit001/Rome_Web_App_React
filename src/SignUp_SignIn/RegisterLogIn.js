@@ -189,13 +189,13 @@ export default function RegisterLogIn() {
                            <div class="form-group formInput ">
                               <div className="faIcons"><FontAwesomeIcon icon={faEnvelope} className="facolors" /></div>
                               <div className="inputDiv">
-                                 <input type="text" onChange={handleChange} name="userEmail" class="form-control  bg-transparent" placeholder="Email" />
+                                 <input type="text"   onChange={handleChange} name="userEmail" class="form-control  bg-transparent" placeholder="Email" />
                               </div>
                            </div>
                            <div class="form-group formInput">
                               <div className="faIcons"><FontAwesomeIcon icon={faLock} className="facolors" /></div>
                               <div className="inputDiv">
-                                 <input type="password" name="userPassword" onChange={handleChange} className="form-control bg-transparent loginPassword" placeholder="Password" /*onKeyUp={passwordJsSpan} onFocus={display} onBlur={displayoff}*/ />
+                                 <input type="password"  name="userPassword" onChange={handleChange} className="form-control bg-transparent loginPassword" placeholder="Password" /*onKeyUp={passwordJsSpan} onFocus={display} onBlur={displayoff}*/ />
                               </div>
 
                            </div>
@@ -206,13 +206,7 @@ export default function RegisterLogIn() {
                            </div>
                         </> :
                         <>
-                           <div class="form-group formInput ">
-                              <div className="faIcons"><FontAwesomeIcon icon={faUser} className="facolors" /></div>
-                              <div className="inputDiv">
-                                 <input type="text" class="form-control  bg-transparent" placeholder="Name" name="userName" onChange={handleChange} />
-                              </div>
-                           </div>
-                           <span className="errorSpan">{errors.userName}</span>
+                          
                            <div class="form-group formInput">
                               <div className="faIcons"><FontAwesomeIcon icon={faEnvelope} className="facolors" /></div>
                               <div className="inputDiv">
@@ -220,6 +214,13 @@ export default function RegisterLogIn() {
                               </div>
                            </div>
                            <span className="errorSpan">{errors.userEmail}</span>
+                           <div class="form-group formInput ">
+                              <div className="faIcons"><FontAwesomeIcon icon={faUser} className="facolors" /></div>
+                              <div className="inputDiv">
+                                 <input type="text" class="form-control  bg-transparent" placeholder="Name" name="userName" onChange={handleChange} />
+                              </div>
+                           </div>
+                           <span className="errorSpan">{errors.userName}</span>
                            <div class="form-group formInput ">
                               <div className="faIcons"><FontAwesomeIcon icon={faPhone} className="facolors" /></div>
                               <div className="inputDiv">
@@ -278,8 +279,8 @@ export default function RegisterLogIn() {
                   <small >{show ? "Don't have an account" : "Already have an account"}</small>
                   <div className="heCreateAcc mt-1 ">
                      {show ?
-                        <button onClick={() => setshow(false)}
-                           className="btn btn-outline-light btn-sm fw-bold rounded-0  ">Create Account Now</button> : <button onClick={() => setshow(true)} className="btn btn-outline-light btn-sm fw-bold rounded-0  ">LogIn Here
+                        <button onClick={() => {setshow(false);setData({})}}
+                           className="btn btn-outline-light btn-sm fw-bold rounded-0  ">Create Account Now</button> : <button onClick={() =>{ setshow(true);setData({})}} className="btn btn-outline-light btn-sm fw-bold rounded-0  ">LogIn Here
                         </button>}
                   </div>
                </div>
